@@ -7,8 +7,8 @@ import './NotesTableItem.scss';
 const NotesTableItem = (props) => {
   const {
     data: {
-      name, created, category, content,
-    },
+      id, name, created, category, content,
+    }, onDeleteNote,
   } = props;
   function getDates(str) {
     return str.match(/\d{1,2}\/\d{1,2}\/\d{4}/g)?.join(', ') || '';
@@ -21,7 +21,7 @@ const NotesTableItem = (props) => {
   }
 
   return (
-    <tr>
+    <tr id={id}>
       <td>{name}</td>
       <td>{getDate(created)}</td>
       <td>{category}</td>
@@ -29,7 +29,7 @@ const NotesTableItem = (props) => {
       <td>{getDates(content)}</td>
       <td><UIIconButton icon="edit" /></td>
       <td><UIIconButton icon="arch" /></td>
-      <td><UIIconButton icon="del" /></td>
+      <td><UIIconButton icon="del" onClick={onDeleteNote} /></td>
     </tr>
   );
 };

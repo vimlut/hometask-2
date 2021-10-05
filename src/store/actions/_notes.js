@@ -1,9 +1,5 @@
-import {
-  ADD_NOTE,
-  UPDATE_NOTE,
-  DELETE_NOTE,
-  DELETE_NOTES,
-} from '../action-types';
+/* eslint-disable object-curly-newline */
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES } from '../action-types';
 
 export const addNote = (newNote) => (dispatch) => {
   dispatch({ type: ADD_NOTE, payload: newNote });
