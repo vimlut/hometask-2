@@ -1,16 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { UIIconButton } from 'components';
+
 import './NotesTableItem.scss';
 
-const NotesTableItem = ({ data }) => {
+const NotesTableItem = (props) => {
   const {
-    id, name, created, category, content,
-  } = data;
-  const getDates = (str) => str.match(/\d{1,2}\/\d{1,2}\/\d{4}/g)?.join(', ') || '';
-  const getDate = (dateInMs) => new Date(dateInMs).toLocaleDateString();
-  const getContent = (str) => (str.length > 19 ? `${str.substring(0, 19)} ...` : str);
+    data: {
+      name, created, category, content,
+    },
+  } = props;
+  function getDates(str) {
+    return str.match(/\d{1,2}\/\d{1,2}\/\d{4}/g)?.join(', ') || '';
+  }
+  function getDate(dateInMs) {
+    return new Date(dateInMs).toLocaleDateString();
+  }
+  function getContent(str) {
+    return str.length > 19 ? `${str.substring(0, 19)} ...` : str;
+  }
 
   return (
     <tr>
