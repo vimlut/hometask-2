@@ -7,28 +7,22 @@ import './NotesTableItem.scss';
 const NotesTableItem = (props) => {
   const {
     data: {
-      id, name, created, category, content,
-    }, onDeleteNote,
+      id, name, created, category, content, isArchived,
+    }, onDeleteNote, onArchiveNote,
   } = props;
-  function getDates(str) {
-    return str.match(/\d{1,2}\/\d{1,2}\/\d{4}/g)?.join(', ') || '';
-  }
-  function getDate(dateInMs) {
-    return new Date(dateInMs).toLocaleDateString();
-  }
-  function getContent(str) {
-    return str.length > 19 ? `${str.substring(0, 19)} ...` : str;
-  }
+  const dates = content.match(/\d{1,2}\/\d{1,2}\/\d{4}/g)?.join(', ') || '';
+  const dateCreated = new Date(created).toLocaleDateString();
+  const description = content.length > 19 ? `${content.substring(0, 19)} ...` : content;
 
   return (
     <tr id={id}>
       <td>{name}</td>
-      <td>{getDate(created)}</td>
+      <td>{dateCreated}</td>
       <td>{category}</td>
-      <td>{getContent(content)}</td>
-      <td>{getDates(content)}</td>
-      <td><UIIconButton icon="edit" /></td>
-      <td><UIIconButton icon="arch" /></td>
+      <td>{description}</td>
+      <td>{dates}</td>
+      <td>{!isArchived && <UIIconButton icon="edit" />}</td>
+      <td><UIIconButton icon="arch" onClick={onArchiveNote} /></td>
       <td><UIIconButton icon="del" onClick={onDeleteNote} /></td>
     </tr>
   );
