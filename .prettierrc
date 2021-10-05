@@ -1,0 +1,7 @@
+{
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "arrowParens": "always",
+    "printWidth": 120
+}
