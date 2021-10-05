@@ -1,0 +1,8 @@
+/* eslint-disable object-curly-newline */
+const ADD_NOTE = 'ADD_NOTE';
+const UPDATE_NOTE = 'UPDATE_NOTE';
+const DELETE_NOTE = 'DELETE_NOTE';
+const DELETE_NOTES = 'DELETE_NOTES';
+const TOGGLE_NOTES = 'TOGGLE_NOTES';
+
+export { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES, TOGGLE_NOTES };
