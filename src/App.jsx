@@ -1,9 +1,10 @@
-import { NotesTable } from './components';
+import { NotesTable, NotesStats } from './components';
 
 function App() {
   return (
     <div className="container">
       <NotesTable />
+      <NotesStats />
     </div>
   );
 }
