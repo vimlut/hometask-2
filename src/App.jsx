@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { NotesTable } from './components';
 
 function App() {
