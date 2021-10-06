@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { noteCategories } from 'constants.js';
 import {
-  UIModal, UIButton, UIInput, UISelect, UIFormGroup,
+  UIModal, UIButton, UIInput, UISelect, UIFormGroup, UITextArea,
 } from 'components';
 
 const NoteModal = (props) => {
@@ -47,7 +47,7 @@ const NoteModal = (props) => {
         </UIFormGroup>
         <UIFormGroup>
           <label htmlFor="task-content">Content:</label>
-          <textarea name="content" value={formData.content} onChange={handleFormChange} />
+          <UITextArea name="content" value={formData.content} onChange={handleFormChange} />
         </UIFormGroup>
         <div className="ui-modal__controls">
           <UIButton onClick={onClose} btnType="secondary" text="Cancel" />
