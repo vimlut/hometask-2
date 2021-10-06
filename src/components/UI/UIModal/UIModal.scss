@@ -46,6 +46,10 @@
     padding: 20px;
     overflow: auto;
   }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
   .ui-ibtn {
     position: absolute;
     right: 15px;

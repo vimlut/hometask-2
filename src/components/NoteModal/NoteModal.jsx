@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { noteCategories } from 'constants.js';
 import {
-  UIModal, UIButton, UIInput, UISelect,
+  UIModal, UIButton, UIInput, UISelect, UIFormGroup,
 } from 'components';
 
 const NoteModal = (props) => {
@@ -31,7 +31,7 @@ const NoteModal = (props) => {
       title={title}
     >
       <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
+        <UIFormGroup>
           <label htmlFor="task-name">Name:</label>
           <UIInput
             id="task-name"
@@ -40,18 +40,18 @@ const NoteModal = (props) => {
             onChange={handleFormChange}
             required
           />
-        </div>
-        <div className="form-group">
+        </UIFormGroup>
+        <UIFormGroup>
           <label htmlFor="task-category">Category:</label>
           <UISelect name="category" value={formData.category} onChange={handleFormChange} options={options} />
-        </div>
-        <div className="form-group">
+        </UIFormGroup>
+        <UIFormGroup>
           <label htmlFor="task-content">Content:</label>
           <textarea name="content" value={formData.content} onChange={handleFormChange} />
-        </div>
-        <div className="form-controls">
+        </UIFormGroup>
+        <div className="ui-modal__controls">
           <UIButton onClick={onClose} btnType="secondary" text="Cancel" />
-          <UIButton type="submit" btnType="primary" text="Confirm" />
+          <UIButton type="submit" text="Confirm" />
         </div>
       </form>
     </UIModal>
