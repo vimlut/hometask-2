@@ -13,7 +13,7 @@
     "redux": "latest",
     "redux-devtools-extension": "latest",
     "redux-thunk": "latest",
-    "uuid": "latest"
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -34,4 +34,7 @@
   &--del:before {
     content: '\e802';
   }
+  &--cancel:before {
+    content: '\e803';
+  }
 }

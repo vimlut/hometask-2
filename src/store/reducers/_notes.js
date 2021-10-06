@@ -56,12 +56,11 @@ const initialState = [
 
 export const notes = (state = initialState, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case ADD_NOTE:
       return [...state, payload];
     case UPDATE_NOTE:
-      return state.map((item) => (item.id === payload.id ? { ...item, ...payload } : item));
+      return state.map((it) => (it.id === payload.id ? { ...it, ...payload } : it));
     case DELETE_NOTE:
       return state.filter((item) => item.id !== payload);
     case DELETE_NOTES:
