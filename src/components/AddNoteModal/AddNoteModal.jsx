@@ -5,6 +5,7 @@ import { useState } from 'react';
 import {
   UIModal, UIButton, UIInput, UISelect,
 } from 'components';
+import { noteCategories } from 'constants.js';
 
 const AddNoteModal = (props) => {
   const {
@@ -12,7 +13,7 @@ const AddNoteModal = (props) => {
   } = props;
   const initalState = { name: '', category: 'task', content: '' };
   const [formData, setFormData] = useState(initalState);
-  const options = [{ value: 'task', label: 'Task' }, { value: 'Random Thought', label: 'Random Thought' }, { value: 'Idea', label: 'Idea' }, { value: 'Quote', label: 'Quote' }];
+  const options = noteCategories.map((cat) => ({ value: cat, label: cat }));
   function handleFormChange(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

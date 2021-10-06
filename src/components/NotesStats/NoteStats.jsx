@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux';
+import { noteCategories } from 'constants.js';
 import { NotesStatsItem } from './NotesStatsItem';
 
 const NotesStats = () => {
   const { notes } = useSelector((state) => state);
-
-  const categories = ['Task', 'Random Thought', 'Idea', 'Quote'];
 
   function getNotesByCategory(category) {
     return notes.filter(
@@ -23,7 +22,7 @@ const NotesStats = () => {
   function getArchivedNotesCountByCategory(category) {
     return getArchivedNotesByCategory(category).length;
   }
-  const data = categories.map((category, index) => ({
+  const data = noteCategories.map((category, index) => ({
     id: `stat-${index}`,
     name: category,
     activeCount: getActiveNotesCountByCategory(category),

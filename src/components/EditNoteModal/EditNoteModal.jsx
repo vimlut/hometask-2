@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
+import { noteCategories } from 'constants.js';
 import {
   UIModal, UIButton, UIInput, UISelect,
 } from 'components';
@@ -12,7 +13,7 @@ const EditNoteModal = (props) => {
   } = props;
   const [formData, setFormData] = useState();
   useEffect(() => setFormData(data), [isVisible]);
-  const options = [{ value: 'task', label: 'Task' }, { value: 'Random Thought', label: 'Random Thought' }, { value: 'Idea', label: 'Idea' }, { value: 'Quote', label: 'Quote' }];
+  const options = noteCategories.map((cat) => ({ value: cat, label: cat }));
   function handleFormChange(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
