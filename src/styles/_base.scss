@@ -9,10 +9,13 @@
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: $font-primary;
+  background: var(--background-primary);
 }
 
 input,
@@ -20,6 +23,10 @@ select,
 textarea {
   font-size: 1rem;
   font-family: inherit;
+}
+
+.container {
+  padding: 1rem;
 }
 
 .data-table {
@@ -42,9 +49,6 @@ textarea {
   }
 }
 
-dialog {
-  min-width: 400px;
-}
 .form-controls {
   display: flex;
   justify-content: space-between;
@@ -53,18 +57,7 @@ dialog {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  label {
-    display: block;
-  }
-  & select,
-  & input {
-    display: block;
-    width: 100%;
-  }
   textarea {
-    display: block;
     resize: vertical;
-    margin-right: 0;
-    width: 100%;
   }
 }
