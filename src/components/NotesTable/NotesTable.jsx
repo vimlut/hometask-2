@@ -25,6 +25,7 @@ const NotesTable = () => {
   const activeNotes = notes.filter((note) => !note.isArchived);
   const archivedNotes = notes.filter((note) => note.isArchived);
   const data = showActive ? activeNotes : archivedNotes;
+  const tableCaption = showActive ? 'Active notes' : 'Archived notes';
   function handleDeleteNote(noteId) {
     if (confirm('Are you sure you want to delete this note?')) {
       dispatch(deleteNote(noteId));
@@ -77,6 +78,9 @@ const NotesTable = () => {
   return (
     <section>
       <table className="data-table">
+        <caption>
+          <h2>{tableCaption}</h2>
+        </caption>
         <tbody>
           <tr>
             <th>Name</th>
@@ -85,8 +89,21 @@ const NotesTable = () => {
             <th>Content</th>
             <th>Dates</th>
             <th />
-            <th><UIIconButton icon="arch" onClick={handleToggleActive} /></th>
-            <th><UIIconButton icon="del" onClick={handleDeleteAllNotes} /></th>
+            <th>
+              <UIIconButton
+                icon="arch"
+                onClick={handleToggleActive}
+                label="Toggle active/archived notes"
+              />
+            </th>
+            <th>
+              <UIIconButton
+                icon="del"
+                onClick={handleDeleteAllNotes}
+                label="Delete all notes"
+                disabled={!data.length}
+              />
+            </th>
           </tr>
           {data.length ? (data.map((item) => (
             <NotesTableItem

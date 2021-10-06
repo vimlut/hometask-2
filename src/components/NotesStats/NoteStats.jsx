@@ -31,6 +31,9 @@ const NotesStats = () => {
 
   return (
     <table className="data-table">
+      <caption>
+        <h2>Notes stats</h2>
+      </caption>
       <tbody>
         <tr>
           <th>Category</th>

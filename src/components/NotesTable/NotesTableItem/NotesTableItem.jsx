@@ -31,9 +31,28 @@ const NotesTableItem = (props) => {
       <td>{category}</td>
       <td>{description}</td>
       <td>{dates}</td>
-      <td>{!isArchived && <UIIconButton icon="edit" onClick={handleEditNote} />}</td>
-      <td><UIIconButton icon="arch" onClick={handleArchiveNote} /></td>
-      <td><UIIconButton icon="del" onClick={handleDeleteNote} /></td>
+      <td>
+        <UIIconButton
+          icon="edit"
+          onClick={handleEditNote}
+          label="Edit note"
+          disabled={isArchived}
+        />
+      </td>
+      <td>
+        <UIIconButton
+          icon="arch"
+          onClick={handleArchiveNote}
+          label={isArchived ? 'Unarchive note' : 'Archive note'}
+        />
+      </td>
+      <td>
+        <UIIconButton
+          icon="del"
+          onClick={handleDeleteNote}
+          label="Delete note"
+        />
+      </td>
     </tr>
   );
 };
