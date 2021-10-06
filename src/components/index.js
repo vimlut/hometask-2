@@ -1,5 +1,4 @@
 export { NotesTable } from './NotesTable';
 export { NotesStats } from './NotesStats';
-export { AddNoteModal } from './AddNoteModal';
-export { EditNoteModal } from './EditNoteModal';
+export { NoteModal } from './NoteModal';
 export * from './UI';

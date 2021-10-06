@@ -9,7 +9,7 @@ import {
   deleteNote, deleteNotes, updateNote, addNote,
 } from 'store/actions';
 import {
-  UIIconButton, UIButton, AddNoteModal, EditNoteModal,
+  UIIconButton, UIButton, NoteModal,
 } from 'components';
 import { NotesTableItem } from './NotesTableItem';
 
@@ -117,13 +117,13 @@ const NotesTable = () => {
         </tbody>
       </table>
       <UIButton onClick={showAddNoteModal} text="Add new note" />
-      <AddNoteModal
+      <NoteModal
         isVisible={isAddModalVisible}
         title="Add new note"
         onClose={hideAddNoteModal}
         onSubmit={handleAddNoteSubmit}
       />
-      <EditNoteModal
+      <NoteModal
         isVisible={isEditModalVisible}
         title="Edit note"
         onClose={hideEditNoteModal}

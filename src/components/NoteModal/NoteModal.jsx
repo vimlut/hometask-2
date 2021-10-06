@@ -1,18 +1,19 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { noteCategories } from 'constants.js';
 import {
   UIModal, UIButton, UIInput, UISelect,
 } from 'components';
-import { noteCategories } from 'constants.js';
 
-const AddNoteModal = (props) => {
+const NoteModal = (props) => {
   const {
-    isVisible, onClose, onSubmit, title,
+    isVisible, onClose, onSubmit, title, data,
   } = props;
-  const initalState = { name: '', category: 'task', content: '' };
-  const [formData, setFormData] = useState(initalState);
+  const initalsState = data || { name: '', category: 'task', content: '' };
+  const [formData, setFormData] = useState();
+  useEffect(() => setFormData(initalsState), [isVisible]);
   const options = noteCategories.map((cat) => ({ value: cat, label: cat }));
   function handleFormChange(e) {
     const { name, value } = e.target;
@@ -57,4 +58,4 @@ const AddNoteModal = (props) => {
   ) : null;
 };
 
-export { AddNoteModal };
+export { NoteModal };
