@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import { UIModal, UIButton } from 'components';
+import { UIModal, UIButton, UIInput } from 'components';
 
 const EditNoteModal = (props) => {
   const {
@@ -27,10 +28,9 @@ const EditNoteModal = (props) => {
       <form onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="task-name">Name:</label>
-          <input
+          <UIInput
             id="task-name"
             name="name"
-            type="text"
             value={formData.name}
             onChange={handleFormChange}
             required
