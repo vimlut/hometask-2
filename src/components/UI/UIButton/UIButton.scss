@@ -7,8 +7,6 @@
   border-radius: 0.25rem;
   background: inherit;
   cursor: pointer;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &--normal {
     font-size: 1rem;
   }
@@ -18,26 +16,15 @@
   &--large {
     font-size: 1.25rem;
   }
+  &:hover {
+    filter: brightness(110%);
+  }
   &--primary {
     color: $color-white;
-    background: var(--color-accent);
-    &:hover {
-      filter: brightness(110%);
-    }
+    background: $color-dodger-blue;
   }
   &--secondary {
-    color: var(--color-secondary);
-    border-color: var(--color-secondary);
-    background: transparent;
-    &:hover {
-      color: $color-white;
-      filter: brightness(110%);
-    }
-  }
-  &--action {
-    padding: 0.75em;
-    color: var(--color-accent);
-    line-height: normal;
-    border: 0;
+    color: $color-white;
+    background: $color-mishka;
   }
 }
