@@ -3,14 +3,14 @@ import './UIIconButton.scss';
 
 const UIIconButton = (props) => {
   const {
-    onClick, icon, label, disabled,
+    onClick, icon, label, disabled, extraClassName,
   } = props;
-  const buttonClassName = `ui-ibtn ui-ibtn--${icon}`;
+  const componentClassName = `ui-icon-button ui-icon-button--${icon} ${extraClassName}`;
 
   return (
     <button
       type="button"
-      className={buttonClassName}
+      className={componentClassName}
       onClick={onClick}
       title={label}
       aria-label={label}

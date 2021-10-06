@@ -24,7 +24,7 @@ const UIModal = ({
               extraClassName="ui-modal__btn-close"
               icon="cancel"
               onClick={onClose}
-              title="Close modal"
+              label="Close modal"
             />
           </div>
           <div className="ui-modal__content">{children}</div>
