@@ -1,0 +1,30 @@
+@import '~styles/variables';
+
+.ui-button {
+  padding: 0.375em 0.75em;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: inherit;
+  cursor: pointer;
+  &--normal {
+    font-size: 1rem;
+  }
+  &--small {
+    font-size: 0.75rem;
+  }
+  &--large {
+    font-size: 1.25rem;
+  }
+  &:hover {
+    filter: brightness(110%);
+  }
+  &--primary {
+    color: $color-white;
+    background: $color-dodger-blue;
+  }
+  &--secondary {
+    color: $color-white;
+    background: $color-mishka;
+  }
+}

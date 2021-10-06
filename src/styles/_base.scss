@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+}
+
+input,
+select,
+textarea {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.data-table {
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  th {
+    background: $color-grey;
+    color: $color-white;
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+  tr {
+    background: $color-solitude;
+  }
+  td {
+    padding: 0.5rem;
+  }
+}

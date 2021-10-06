@@ -1,0 +1,16 @@
+@import '~styles/variables';
+
+.ui-textarea {
+  padding: 0.375em 0.75em;
+  color: $color-black;
+  font-family: $font-primary;
+  border: 1px solid $color-mishka;
+  border-radius: 2px;
+  background: none;
+  background-color: inherit;
+  resize: vertical;
+  &::placeholder {
+    color: $color-mishka;
+    filter: brightness(70%);
+  }
+}

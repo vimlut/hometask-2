@@ -1,0 +1,17 @@
+@import '~styles/variables';
+
+.ui-select {
+  padding: 0.375em 0.75em;
+  color: $color-black;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid $color-mishka;
+  border-radius: 0.25rem;
+  background-color: inherit;
+  background-clip: padding-box;
+  &__option {
+    color: inherit;
+    font-size: inherit;
+    background: $color-white;
+  }
+}

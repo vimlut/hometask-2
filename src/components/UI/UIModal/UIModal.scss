@@ -1,0 +1,58 @@
+@import '~styles/variables';
+
+.ui-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  min-height: 320px;
+  max-height: calc(100vh - 48px);
+  color: black;
+  border-radius: 10px;
+  background: white;
+  transform: translate(-50%, -50%);
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+  }
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 1px solid gray;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto;
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn-close {
+    position: absolute;
+    right: 15px;
+    font-size: 1.5rem;
+  }
+}
