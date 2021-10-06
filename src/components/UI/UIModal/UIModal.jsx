@@ -1,11 +1,14 @@
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
+
 import { UIIconButton } from 'components';
 
 import './UIModal.scss';
 
-const UIModal = ({
-  title, isVisible, onClose, children, extraClassName,
-}) => {
+const UIModal = (props) => {
+  const {
+    title, isVisible, onClose, children, extraClassName,
+  } = props;
   const componentClassName = extraClassName ? `ui-modal ${extraClassName}` : 'ui-modal';
   const modalRoot = document.getElementById('modal-root');
 
@@ -36,8 +39,21 @@ const UIModal = ({
 };
 
 UIModal.defaultProps = {
-  title: 'Modal title',
+  title: 'My Modal',
   isVisible: false,
+  onClose: null,
+  children: null,
+  extraClassName: '',
+};
+
+UIModal.propTypes = {
+  title: PropTypes.string,
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func,
+  extraClassName: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node]),
 };
 
 export { UIModal };

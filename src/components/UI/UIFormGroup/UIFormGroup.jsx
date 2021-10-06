@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
+
 import './UIFormGroup.scss';
 
 const UIFormGroup = ({ children }) => (
@@ -8,6 +9,13 @@ const UIFormGroup = ({ children }) => (
 );
 
 UIFormGroup.defaultProps = {
+  children: null,
+};
+
+UIFormGroup.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node]),
 };
 
 export { UIFormGroup };

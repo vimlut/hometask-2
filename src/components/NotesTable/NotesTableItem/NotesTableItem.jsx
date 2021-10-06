@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
+
 import { UIIconButton } from 'components';
 
 import './NotesTableItem.scss';
@@ -55,6 +55,36 @@ const NotesTableItem = (props) => {
       </td>
     </tr>
   );
+};
+
+NotesTableItem.defaultProps = {
+  data: {
+    id: '',
+    name: '',
+    created: '',
+    category: '',
+    content: '',
+    isArchived: false,
+  },
+  onDeleteNote: null,
+  onArchiveNote: null,
+  onEditNote: null,
+};
+
+NotesTableItem.propTypes = {
+  data: PropTypes.shape(
+    {
+      id: PropTypes.string,
+      name: PropTypes.string,
+      created: PropTypes.number,
+      category: PropTypes.string,
+      content: PropTypes.string,
+      isArchived: PropTypes.bool,
+    },
+  ),
+  onDeleteNote: PropTypes.func,
+  onArchiveNote: PropTypes.func,
+  onEditNote: PropTypes.func,
 };
 
 export { NotesTableItem };

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 
 import './UITextArea.scss';

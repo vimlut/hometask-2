@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { noteCategories } from 'constants.js';
 import {
   UIModal, UIButton, UIInput, UISelect, UIFormGroup, UITextArea,
@@ -56,6 +55,25 @@ const NoteModal = (props) => {
       </form>
     </UIModal>
   ) : null;
+};
+
+NoteModal.defaultProps = {
+  title: 'My Modal',
+  isVisible: false,
+  onClose: null,
+  onSubmit: null,
+  data: { name: '', category: 'task', content: '' },
+};
+
+NoteModal.propTypes = {
+  title: PropTypes.string,
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func,
+  onSubmit: PropTypes.func,
+  data: PropTypes.shape(
+    { name: PropTypes.string, category: PropTypes.string, content: PropTypes.string },
+  ),
+
 };
 
 export { NoteModal };
