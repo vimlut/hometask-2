@@ -16,16 +16,17 @@ import { NotesTableItem } from './NotesTableItem';
 import './NotesTable.scss';
 
 const NotesTable = () => {
-  const [showActive, toggleShowActive] = useState(true);
-  const [isAddModalVisible, setAddModalVisible] = useState(false);
-  const [isEditModalVisible, setEditModalVisible] = useState(false);
-  const [selectedNote, setSelectedNote] = useState({});
   const dispatch = useDispatch();
+  const [showActive, toggleShowActive] = useState(true);
+  const [modalOptions, setModalOptions] = useState({
+    isVisible: false, title: '', onClose: null, onConfirm: null, data: null,
+  });
   const { notes } = useSelector((state) => state);
   const activeNotes = notes.filter((note) => !note.isArchived);
   const archivedNotes = notes.filter((note) => note.isArchived);
   const data = showActive ? activeNotes : archivedNotes;
   const tableCaption = showActive ? 'Active notes' : 'Archived notes';
+
   function handleDeleteNote(noteId) {
     if (confirm('Are you sure you want to delete this note?')) {
       dispatch(deleteNote(noteId));
@@ -42,17 +43,10 @@ const NotesTable = () => {
   function handleArchiveNote(id, isArchived) {
     dispatch(updateNote({ id, isArchived: !isArchived }));
   }
-  function showAddNoteModal() {
-    setAddModalVisible(true);
-  }
-  function hideAddNoteModal() {
-    setAddModalVisible(false);
-  }
-  function showEditNoteModal() {
-    setEditModalVisible(true);
-  }
-  function hideEditNoteModal() {
-    setEditModalVisible(false);
+  function hideModal() {
+    setModalOptions({
+      ...modalOptions, isVisible: false,
+    });
   }
   function handleAddNoteSubmit(formData) {
     const newNote = {
@@ -64,15 +58,21 @@ const NotesTable = () => {
       created: Date.now(),
     };
     dispatch(addNote(newNote));
-    hideAddNoteModal();
-  }
-  function handleEditNote(note) {
-    setSelectedNote(note);
-    showEditNoteModal();
+    hideModal();
   }
   function handleEditNoteSubmit(note) {
     dispatch(updateNote(note));
-    hideEditNoteModal();
+    hideModal();
+  }
+  function showAddNoteModal() {
+    setModalOptions({
+      ...modalOptions, isVisible: true, title: 'Add new note', onConfirm: handleAddNoteSubmit, onClose: hideModal,
+    });
+  }
+  function handleEditNote(note) {
+    setModalOptions({
+      ...modalOptions, isVisible: true, title: 'Edit note', onClose: hideModal, onConfirm: handleEditNoteSubmit, data: note,
+    });
   }
 
   return (
@@ -118,17 +118,11 @@ const NotesTable = () => {
       </table>
       <UIButton onClick={showAddNoteModal} text="Add new note" />
       <NoteModal
-        isVisible={isAddModalVisible}
-        title="Add new note"
-        onClose={hideAddNoteModal}
-        onSubmit={handleAddNoteSubmit}
-      />
-      <NoteModal
-        isVisible={isEditModalVisible}
-        title="Edit note"
-        onClose={hideEditNoteModal}
-        onSubmit={handleEditNoteSubmit}
-        data={selectedNote}
+        isVisible={modalOptions.isVisible}
+        title={modalOptions.title}
+        onClose={modalOptions.onClose}
+        onSubmit={modalOptions.onConfirm}
+        data={modalOptions.data}
       />
     </section>
   );
