@@ -8,6 +8,7 @@
   "rules": {
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
+    "linebreak-style": ["error", "windows"],
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
