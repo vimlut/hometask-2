@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import { UIModal } from 'components';
+import { UIModal, UIButton } from 'components';
 
 const EditNoteModal = (props) => {
   const {
@@ -50,8 +50,8 @@ const EditNoteModal = (props) => {
           <textarea name="content" value={formData.content} onChange={handleFormChange} />
         </div>
         <div className="form-controls">
-          <button type="button" onClick={onClose}>Cancel</button>
-          <button type="submit">Confirm</button>
+          <UIButton onClick={onClose} btnType="secondary" text="Cancel" />
+          <UIButton type="submit" btnType="primary" text="Confirm" />
         </div>
       </form>
     </UIModal>

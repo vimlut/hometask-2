@@ -1,3 +1,12 @@
+:root {
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-mishka};
+  --color-secondary-darken: #{darken($color-mishka, 10%)};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-solitude};
+  --background-secondary: #{$color-white};
+  --background-skeleton: #{darken($color-white, 10%)};
+}
 * {
   box-sizing: border-box;
 }

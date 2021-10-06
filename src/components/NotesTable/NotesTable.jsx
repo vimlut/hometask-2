@@ -8,7 +8,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   deleteNote, deleteNotes, updateNote, addNote,
 } from 'store/actions';
-import { UIIconButton, AddNoteModal, EditNoteModal } from 'components';
+import {
+  UIIconButton, UIButton, AddNoteModal, EditNoteModal,
+} from 'components';
 import { NotesTableItem } from './NotesTableItem';
 
 import './NotesTable.scss';
@@ -97,7 +99,7 @@ const NotesTable = () => {
           ))) : <tr><td colSpan="8">No notes to display</td></tr>}
         </tbody>
       </table>
-      <button type="button" onClick={showAddNoteModal}>Add new note</button>
+      <UIButton onClick={showAddNoteModal} text="Add new note" />
       <AddNoteModal
         isVisible={isAddModalVisible}
         title="Add new note"
